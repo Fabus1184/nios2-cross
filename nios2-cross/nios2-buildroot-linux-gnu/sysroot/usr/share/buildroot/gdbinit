@@ -1,0 +1,2 @@
+add-auto-load-safe-path /home/fabian/Downloads/nios2--glibc--stable-2021.11-1/nios2-buildroot-linux-gnu/sysroot
+set sysroot /home/fabian/Downloads/nios2--glibc--stable-2021.11-1/nios2-buildroot-linux-gnu/sysroot
