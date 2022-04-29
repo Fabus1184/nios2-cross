@@ -1,7 +1,9 @@
 
 #!/bin/bash
 
-./nios2-cross/bin/nios2-buildroot-linux-gnu-gcc-10.3.0.br_real -S $1
+[[ -z $1 ]] && exit 1
+
+./nios2-cross/bin/nios2-buildroot-linux-gnu-gcc-10.3.0.br_real -fPIE -S $1
 
 readonly out=$(echo `basename $1` | cut -d "." -f1 ).s
 
