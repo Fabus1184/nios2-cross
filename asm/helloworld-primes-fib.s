@@ -106,7 +106,6 @@ int main() {
 	writeString(end);
 
 	asm(
-		"\nENDLOOP:\n"
-		"br ENDLOOP\n"
+		"br END\n"
 	);
 }

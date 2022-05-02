@@ -8,7 +8,7 @@ readonly name=$(echo `basename $1` | cut -d "." -f1 )
 
 #./nios2-cross/bin/nios2-linux-gcc -O0 -nostdlib -lgcc -S -Wall $1 -march=r2
 #./nios2-cross/bin/nios2-linux-gcc -fverbose-asm -ffreestanding -fno-builtin -nostdlib -O0 -S -Wall $1 -march=r1
-./nios2-cross/bin/nios2-linux-gcc -ffreestanding -fno-builtin -nostdlib -O2 -S -Wall $1 -march=r1
+./nios2-cross/bin/nios2-linux-gcc -ffreestanding -fno-builtin -nostdlib -O0 -S -Wall $1 -march=r1
 
 # 	.file	"test.c"
 # 	.section	.text
@@ -47,5 +47,5 @@ out=$(echo "${prog}" |\
 	sed "s/[\t]+/\t/g"
 )
 
-end=$(echo -e "\n\n.data\n\t\t.skip 0xFF7C\n.end\n")
+end=$(echo -e "\nEND:\n\n.data\n\t\t.skip 0xFF7C\n.end\n")
 printf "%s" "${out}" "$end" | xclip -sel clipboard
