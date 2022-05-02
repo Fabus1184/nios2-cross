@@ -43,7 +43,7 @@ void itoa(int num, char *buf){
 	int max = log(num, 10);
 	for(; i <= log(num, 10); i++)
 		buf[max - i] = '0' + ((num / pow(10, i)) % 10);
-	buf[++i] = 0;
+	buf[i] = 0;
 }
 
 void writeString(char *ptr){
@@ -84,7 +84,7 @@ int main() {
 	writeString(hw);
 	writeString(line);
 
-	for(int i=1; i < 200; i++) {
+	for(int i = 1; i < 200; i++) {
 		if(isPrime(i)) {	
 			char buf[4];
 			itoa(i, buf);
@@ -95,8 +95,8 @@ int main() {
 
 	writeString(line);
 
-	for(int i=0; i<20; i++){
-		char buf[10];
+	for(int i = 0; i < 20; i++){
+		char buf[6];
 		itoa(fib(i), buf);
 		writeString(buf);
 		writeString(sep);

@@ -253,9 +253,6 @@ L23:
 	ldw	r2, -8(r28)
 	bge	r3, r2, L24
 	ldw	r2, -8(r28)
-	addi	r2, r2, 1
-	stw	r2, -8(r28)
-	ldw	r2, -8(r28)
 	ldw	r3, -16(r28)
 	add	r2, r3, r2
 	stb	zero, 0(r2)
@@ -407,10 +404,10 @@ L39:
 	ret
 	.global	main
 main:
-	addi	r27, r27, -72
-	stw	ra, 68(r27)
-	stw	r28, 64(r27)
-	addi	r28, r27, 64
+	addi	r27, r27, -68
+	stw	ra, 64(r27)
+	stw	r28, 60(r27)
+	addi	r28, r27, 60
 	movhi	r2, %hiadj(__stack_chk_guard)
 	ldw	r2, %lo(__stack_chk_guard)(r2)
 	stw	r2, -4(r28)
@@ -455,14 +452,14 @@ main:
 	stb	r2, -26(r28)
 	stb	zero, -25(r28)
 	movi	r2, 44
-	stb	r2, -55(r28)
+	stb	r2, -51(r28)
 	movi	r2, 32
-	stb	r2, -54(r28)
-	stb	zero, -53(r28)
+	stb	r2, -50(r28)
+	stb	zero, -49(r28)
 	movhi	r2, 2628
 	addi	r2, r2, 20037
-	stw	r2, -52(r28)
-	stb	zero, -48(r28)
+	stw	r2, -48(r28)
+	stb	zero, -44(r28)
 	addi	r2, r28, -37
 	mov	r4, r2
 	call	writeString
@@ -470,60 +467,60 @@ main:
 	mov	r4, r2
 	call	writeString
 	movi	r2, 1
-	stw	r2, -64(r28)
+	stw	r2, -60(r28)
 	br	L44
 L46:
-	ldw	r4, -64(r28)
+	ldw	r4, -60(r28)
 	call	isPrime
 	beq	r2, zero, L45
-	addi	r2, r28, -47
+	addi	r2, r28, -43
 	mov	r5, r2
-	ldw	r4, -64(r28)
+	ldw	r4, -60(r28)
 	call	itoa
-	addi	r2, r28, -47
+	addi	r2, r28, -43
 	mov	r4, r2
 	call	writeString
-	addi	r2, r28, -55
+	addi	r2, r28, -51
 	mov	r4, r2
 	call	writeString
 L45:
-	ldw	r2, -64(r28)
+	ldw	r2, -60(r28)
 	addi	r2, r2, 1
-	stw	r2, -64(r28)
+	stw	r2, -60(r28)
 L44:
-	ldw	r2, -64(r28)
+	ldw	r2, -60(r28)
 	cmplti	r2, r2, 200
 	bne	r2, zero, L46
 	addi	r2, r28, -24
 	mov	r4, r2
 	call	writeString
-	stw	zero, -60(r28)
+	stw	zero, -56(r28)
 	br	L47
 L48:
-	ldw	r4, -60(r28)
+	ldw	r4, -56(r28)
 	call	fib
 	mov	r3, r2
-	addi	r2, r28, -47
+	addi	r2, r28, -43
 	mov	r5, r2
 	mov	r4, r3
 	call	itoa
-	addi	r2, r28, -47
+	addi	r2, r28, -43
 	mov	r4, r2
 	call	writeString
-	addi	r2, r28, -55
+	addi	r2, r28, -51
 	mov	r4, r2
 	call	writeString
-	ldw	r2, -60(r28)
+	ldw	r2, -56(r28)
 	addi	r2, r2, 1
-	stw	r2, -60(r28)
+	stw	r2, -56(r28)
 L47:
-	ldw	r2, -60(r28)
+	ldw	r2, -56(r28)
 	cmplti	r2, r2, 20
 	bne	r2, zero, L48
 	addi	r2, r28, -24
 	mov	r4, r2
 	call	writeString
-	addi	r2, r28, -52
+	addi	r2, r28, -48
 	mov	r4, r2
 	call	writeString
 	br END
