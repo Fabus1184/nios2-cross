@@ -1,31 +1,15 @@
 #!/bin/bash
-
 set -e
+set -v
 
 [[ -z $1 ]] && exit 1
 
-readonly name=$(echo `basename $1` | cut -d "." -f1 )
+readonly path="asm"
+readonly name=$path/$(echo `basename $1` | cut -d "." -f1 )
 
 #./nios2-cross/bin/nios2-linux-gcc -O0 -nostdlib -lgcc -S -Wall $1 -march=r2
 #./nios2-cross/bin/nios2-linux-gcc -fverbose-asm -ffreestanding -fno-builtin -nostdlib -O0 -S -Wall $1 -march=r1
-./nios2-cross/bin/nios2-linux-gcc -ffreestanding -fno-builtin -nostdlib -O0 -S -Wall $1 -march=r1
-
-# 	.file	"test.c"
-# 	.section	.text
-# 	.global	__stack_chk_guard
-# 	.section	.sdata,"aws"
-# 	.align	2
-# 	.type	__stack_chk_guard, @object
-# 	.size	__stack_chk_guard, 4
-# __stack_chk_guard:
-# 	.long	110371071
-# 	.section	.text
-# 	.align	2
-# 	.global	__stack_chk_fail
-# 	.type	__stack_chk_fail, @function
-# __stack_chk_fail:
-# 	addi	sp, sp, -4
-# 	stw	fp, 0(sp)
+./nios2-cross/bin/nios2-linux-gcc -ffreestanding -fno-builtin -nostdlib -O0 -S -Wall $1 -march=r1 -o $name.s
 
 readonly prog=$(<$name.s)
 
