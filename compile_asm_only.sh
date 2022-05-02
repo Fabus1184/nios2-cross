@@ -28,7 +28,8 @@ out=$(echo "${prog}" |\
 	sed "s/sp/r27/g" |\
 	sed "s/fp/r28/g" |\
 	sed "s/gp/r26/g" |\
-	sed "s/[\t]+/\t/g"
+	sed "s/[\t]+/\t/g" |\
+	tr -s '\t'
 )
 
 end=$(echo -e "\nEND:\n\n.data\n\t\t.skip 0xFF7C\n.end\n")
