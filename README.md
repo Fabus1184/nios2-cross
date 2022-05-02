@@ -5,4 +5,6 @@ Cross-compilation toolchain from
 
 For use with [JNiosEmu](https://github.com/stpe/jniosemu)
 
+> Hint: If the compiler uses builtin functions, you may have to turn down the optimization level.
+
 ![helloworld-primes-fib.s executed in jniosemu](thumbnail.png)

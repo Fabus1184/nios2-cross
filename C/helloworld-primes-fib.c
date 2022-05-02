@@ -2,7 +2,7 @@ unsigned long int __stack_chk_guard = 0x69420FF;
 
 int __divsi3(int a, int b){
 	int c;
-	asm("div %[c], %[a], %[b]"
+	asm volatile("div %[c], %[a], %[b]"
 		: [c] "=r" (c)
 		: [a] "r" (a), [b] "r" (b)
 	);
@@ -14,7 +14,7 @@ int __modsi3(int a, int b){
 }
 
 void __stack_chk_fail(void){
-	asm("callr r0");
+	asm volatile("callr r0");
 }
 
 int pow(int base, int exp){
@@ -48,7 +48,7 @@ void itoa(int num, char *buf){
 
 void writeString(char *ptr){
 	for(int i=0; ptr[i] != 0; i++)
-		asm(
+		asm volatile(
 			"stb %[t], 0x864(r0)"
 			: [t] "+r" (ptr[i])
 		);
@@ -105,7 +105,8 @@ int main() {
 	writeString(line);
 	writeString(end);
 
-	asm(
+	asm volatile(
 		"br END\n"
 	);
+	return 0;
 }
