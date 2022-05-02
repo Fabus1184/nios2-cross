@@ -33,3 +33,4 @@ out=$(echo "${prog}" |\
 
 end=$(echo -e "\nEND:\n\n.data\n\t\t.skip 0xFF7C\n.end\n")
 printf "%s" "${out}" "$end" | xclip -sel clipboard
+printf "%s" "${out}" "$end" > $name.s
