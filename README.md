@@ -4,3 +4,5 @@ Cross-compilation toolchain from
 [toolchains.bootlin.com](https://toolchains.bootlin.com/releases_nios2.html), compiled under Linux with GCC 11.2.1
 
 For use with [JNiosEmu](https://github.com/stpe/jniosemu)
+
+![helloworld-primes-fib.s executed in jniosemu](thumbnail.png)
